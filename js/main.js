@@ -99,6 +99,9 @@
         (!name.value.trim() ? name : phone).focus();
         return;
       }
+      if (typeof window.va === "function") {
+        window.va("event", { name: "estimate_request", data: { project_type: (form.querySelector("#f-type") || {}).value || "" } });
+      }
       if (status) {
         status.setAttribute("data-state", "ok");
         status.textContent = "Thanks — this is a demo form. Connect it to email or a CRM to start receiving requests. Or call 703-996-9053.";
